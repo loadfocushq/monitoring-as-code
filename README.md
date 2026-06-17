@@ -1,8 +1,12 @@
 # @loadfocus/monitoring
 
-Define LoadFocus API-monitoring checks as code (YAML or JS/TS constructs) and `deploy` / `test`
-them from CI. Authoring compiles to a canonical wire format; the server reconciles it
-(create/update, safe orphan-deletion) via the `/mac/*` API.
+Define [LoadFocus](https://loadfocus.com) [API Monitoring](https://loadfocus.com/api-monitoring)
+checks as code (YAML or JS/TS constructs) and `deploy` / `test` them from CI. Authoring compiles to a
+canonical wire format; the server reconciles it (create/update, safe orphan-deletion) via the
+`/mac/*` API.
+
+📖 Full guide: **[Monitoring as Code](https://loadfocus.com/docs/guides/monitoring-as-code)** ·
+🔗 [LoadFocus.com](https://loadfocus.com) · [API Monitoring](https://loadfocus.com/api-monitoring)
 
 ```
 loadfocus-monitoring login --apikey <key> --teamid <id>
@@ -102,6 +106,14 @@ merge, so protect the deploy branch (require PR review + scope the workflow's pa
   non-loopback host and warns when the host isn't `*.loadfocus.com`. Keep the default unless you
   run a self-hosted endpoint.
 
+
+## About LoadFocus
+[LoadFocus](https://loadfocus.com) is an all-in-one cloud testing & monitoring platform —
+[API Monitoring](https://loadfocus.com/api-monitoring) (this tool's backend),
+[Page Speed Monitoring](https://loadfocus.com/page-speed-monitoring), and
+[Load Testing](https://loadfocus.com/load-testing). This CLI manages your API Monitoring setup as
+code. Docs: [loadfocus.com/docs](https://loadfocus.com/docs) · Guide:
+[Monitoring as Code](https://loadfocus.com/docs/guides/monitoring-as-code).
 
 ## License
 Apache-2.0 — see `LICENSE`.
