@@ -1,5 +1,9 @@
 # @loadfocus/monitoring
 
+[![npm version](https://img.shields.io/npm/v/@loadfocus/monitoring.svg)](https://www.npmjs.com/package/@loadfocus/monitoring)
+[![npm downloads](https://img.shields.io/npm/dm/@loadfocus/monitoring.svg)](https://www.npmjs.com/package/@loadfocus/monitoring)
+[![license](https://img.shields.io/npm/l/@loadfocus/monitoring.svg)](./LICENSE)
+
 Define [LoadFocus](https://loadfocus.com) [API Monitoring](https://loadfocus.com/api-monitoring)
 checks as code (YAML or JS/TS constructs) and `deploy` / `test` them from CI. Authoring compiles to a
 canonical wire format; the server reconciles it (create/update, safe orphan-deletion) via the
@@ -7,6 +11,14 @@ canonical wire format; the server reconciles it (create/update, safe orphan-dele
 
 📖 Full guide: **[Monitoring as Code](https://loadfocus.com/docs/guides/monitoring-as-code)** ·
 🔗 [LoadFocus.com](https://loadfocus.com) · [API Monitoring](https://loadfocus.com/api-monitoring)
+
+## Install
+```bash
+npm install -g @loadfocus/monitoring    # global CLI: `loadfocus-monitoring …`
+# or run it without installing:
+npx @loadfocus/monitoring init
+```
+Requires Node.js ≥ 18.
 
 ```
 loadfocus-monitoring login --apikey <key> --teamid <id>
