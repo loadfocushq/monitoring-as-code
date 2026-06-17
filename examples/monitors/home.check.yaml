@@ -1,0 +1,15 @@
+# An API check. `logicalId` is the stable identity (rename `name` freely; keep logicalId fixed).
+kind: check
+type: api
+logicalId: home
+name: Home API
+schedule: "300"            # seconds between runs
+locations: [us-east-1]
+group: web                 # optional: reference a group by its logicalId (see web.group.yaml)
+request:
+  url: "https://example.com"
+  method: GET
+  # headers: [{ key: Authorization, value: "Bearer {{secrets.API_TOKEN}}" }]
+assertions:
+  - { type: statusCode, comparison: equals, value: 200 }
+  - { type: responseTime, comparison: below, value: 1000 }

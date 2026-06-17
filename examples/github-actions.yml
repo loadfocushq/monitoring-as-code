@@ -1,0 +1,26 @@
+# .github/workflows/monitoring.yml — test monitors on PRs, deploy on merge to main.
+name: monitoring-as-code
+on:
+  pull_request:
+    paths: ['monitors/**', 'loadfocus.config.*']
+  push:
+    branches: [main]
+    paths: ['monitors/**', 'loadfocus.config.*']
+jobs:
+  monitors:
+    runs-on: ubuntu-latest
+    env:
+      LOADFOCUS_API_KEY: ${{ secrets.LOADFOCUS_API_KEY }}
+      LOADFOCUS_TEAM_ID: ${{ secrets.LOADFOCUS_TEAM_ID }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm i -g @loadfocus/monitoring
+      # PRs: validate checks run green, without persisting anything.
+      - if: github.event_name == 'pull_request'
+        run: loadfocus-monitoring test
+      # merge to main: reconcile (apply). --yes allows deletions in CI.
+      - if: github.event_name == 'push'
+        run: loadfocus-monitoring deploy --yes

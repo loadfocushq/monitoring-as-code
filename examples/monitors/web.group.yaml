@@ -1,0 +1,5 @@
+# A group bundles related checks (shared locations/settings + reporting).
+kind: group
+logicalId: web
+name: Web frontend
+locations: [us-east-1, eu-west-1]

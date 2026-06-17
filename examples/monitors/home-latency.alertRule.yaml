@@ -1,0 +1,8 @@
+# An alert rule fires when a check's metric crosses a threshold.
+kind: alertRule
+logicalId: home-latency
+name: Home API latency
+check: home                # reference the check by its logicalId
+metric: responseTime       # responseTime | statusCode | duration
+condition: above           # above | below
+conditionValue: 1500       # milliseconds for responseTime

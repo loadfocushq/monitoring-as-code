@@ -1,0 +1,8 @@
+# An alert channel. Reference it from a check/group/alertRule by its NAME (which defaults to the
+# logicalId). Secret fields take a {{secrets.X}} reference — store the value with:
+#   loadfocus-monitoring env set-secret PAGERDUTY_KEY "<routing key>"
+# and it's resolved when an alert is sent (never committed to the repo).
+kind: alertChannel
+logicalId: oncall-pd          # name defaults to this → reference it as "oncall-pd"
+type: pagerduty              # email | slack | microsoftteams | webhook | discord | pagerduty | opsgenie
+routingKey: "{{secrets.PAGERDUTY_KEY}}"

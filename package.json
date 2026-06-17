@@ -1,0 +1,51 @@
+{
+  "name": "@loadfocus/monitoring",
+  "version": "1.0.0",
+  "description": "Monitoring as Code for LoadFocus — define your API & synthetic monitors, alerts, status pages and dashboards as version-controlled files and reconcile them with a CLI.",
+  "bin": {
+    "loadfocus-monitoring": "bin/cli.js"
+  },
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "type": "commonjs",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node --test --test-force-exit test/*.test.js"
+  },
+  "dependencies": {
+    "commander": "^12.1.0",
+    "js-yaml": "^4.1.0",
+    "fast-glob": "^3.3.2"
+  },
+  "files": [
+    "bin",
+    "src",
+    "README.md"
+  ],
+  "keywords": [
+    "loadfocus",
+    "monitoring",
+    "monitoring-as-code",
+    "api-monitoring",
+    "synthetic",
+    "cli"
+  ],
+  "author": "LoadFocus <contact@loadfocus.com>",
+  "homepage": "https://loadfocus.com/docs/guides/monitoring-as-code",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/loadfocushq/monitoring-as-code.git"
+  },
+  "bugs": {
+    "url": "https://github.com/loadfocushq/monitoring-as-code/issues"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "license": "Apache-2.0"
+}

@@ -1,0 +1,5 @@
+# A non-secret variable. Reference it in a check at run time as {{vars.BASE_URL}}.
+# (For secrets, use the secret store: loadfocus-monitoring env set-secret — never put secrets here.)
+kind: variable
+logicalId: BASE_URL          # logicalId == the variable key
+value: "https://api.acme.com"

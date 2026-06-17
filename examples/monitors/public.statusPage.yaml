@@ -1,0 +1,33 @@
+# A public status page. The slug is GLOBALLY unique (it's the subdomain: <slug>.loadfoc.us).
+# Components reference checks by their logicalId via `monitors` (NOT raw ids) — the server resolves
+# them. Deploy order is handled for you: checks are created before the page that references them.
+kind: statusPage
+logicalId: public-status
+title: Acme Status
+slug: acme                  # -> acme.loadfoc.us  (must be globally unique)
+customDomain: status.acme.com   # PAID-only; point a CNAME at cname.loadfoc.us, then it goes live
+description: Live status of Acme's services
+enabled: true              # publish the page
+listedPublicly: true
+allowSubscribers: true     # show the "subscribe to updates" form
+showMetrics: true          # per-component response-time sparkline
+# removePoweredBy: true    # PAID-only — silently ignored (stays false) on a free team
+
+# Visual grouping of components on the page.
+groups:
+  - { id: core, name: Core Services, order: 0 }
+
+# Each component shows a status tile; `monitors` lists the checks (by logicalId) it aggregates.
+components:
+  - id: api
+    name: API
+    groupId: core
+    order: 0
+    withStatusHistory: true
+    monitors: [home]       # logicalId of a check in this project (see home.check.yaml)
+
+# Optional white-label branding (URLs are sanitized server-side; unknown fields dropped).
+branding:
+  brandColor: "#5353a4"
+  colorTheme: dark         # dark | light | auto
+  logoLightUrl: "https://example.com/logo.svg"

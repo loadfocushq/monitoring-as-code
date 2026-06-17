@@ -1,0 +1,10 @@
+# Project config — copy this to your repo root as loadfocus.config.yaml and edit `project`.
+# Resolution: env vars (LOADFOCUS_API_KEY/TEAM_ID/API_URL) override the saved ~/.loadfocus config.
+project: acme-prod
+# Glob(s) for your authoring files, relative to this file's directory.
+checkMatch:
+  - "monitors/**/*.{check,group,alertRule,maintenanceWindow,dashboard,statusPage,alertChannel,variable}.{yaml,yml,js}"
+# Optional defaults applied to checks that omit them.
+defaults:
+  schedule: "300"
+  locations: [us-east-1]

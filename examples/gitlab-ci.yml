@@ -1,0 +1,22 @@
+# .gitlab-ci.yml snippet — test monitors on merge requests, deploy on main.
+monitoring:test:
+  image: node:20
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+  variables:
+    LOADFOCUS_API_KEY: $LOADFOCUS_API_KEY
+    LOADFOCUS_TEAM_ID: $LOADFOCUS_TEAM_ID
+  script:
+    - npm i -g @loadfocus/monitoring
+    - loadfocus-monitoring test
+
+monitoring:deploy:
+  image: node:20
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
+  variables:
+    LOADFOCUS_API_KEY: $LOADFOCUS_API_KEY
+    LOADFOCUS_TEAM_ID: $LOADFOCUS_TEAM_ID
+  script:
+    - npm i -g @loadfocus/monitoring
+    - loadfocus-monitoring deploy --yes
