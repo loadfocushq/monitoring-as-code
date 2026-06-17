@@ -1,0 +1,4 @@
+node_modules
+*.log
+.loadfocus
+CLAUDE.md
